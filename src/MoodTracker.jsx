@@ -16,19 +16,35 @@ export default class MoodTracker extends Component {
         moodPoints: 5 // creates key/value pair in this.state
     }
     increaseMood = () => {
-        this.setState((prevState, props) => {
-            return {
-                moodPoints: prevState.moodPoints + 1
-            }
-        })
+
+        if(this.state.moodPoints >= 10) {
+            this.setState({
+                moodPoints: 10
+            })
+        }
+        else{
+            this.setState((prevState, props) => {
+                return {
+                    moodPoints: prevState.moodPoints + 1
+                }
+            })
+        }
     }
 
     decreaseMood = () => {
-        this.setState((prevState, props) => {
-            return {
-                moodPoints: prevState.moodPoints -1
-            }
-        })
+
+        if(this.state.moodPoints <= 1) {
+            this.setState({
+                moodPoints: 1
+            })
+        }
+        else{
+            this.setState((prevState, props) => {
+                return {
+                    moodPoints: prevState.moodPoints -1
+                }
+            })
+        }
     }
 
     handleSetToTen = () => {
